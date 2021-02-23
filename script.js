@@ -24,7 +24,32 @@
 //console.log(document.querySelector('.guess').value);
 //
 
-//event handlers function is just a value so pass it onto function as an argument
+//event handlers function is just a value so pass it onto function as an argument//will be called when even happens
+//document.querySelector('.check').addEventListener('click', function(){
+//   const guess = (document.querySelector('.guess').value);
+//    
+//    document.querySelector('.message').textContent = 'Correct number!';
+//    //add another query selector inside query sselector and function call
+//});
+
+
+//regular function expression  inside the query selector add event listener method
+
 document.querySelector('.check').addEventListener('click', function(){
-    console.log(document.querySelwctor('.guess').value);
+   const guess = Number(document.querySelector('.guess').value);
+    console.log(guess, typeof guess);
+//    value form input generates string convert to number
+    
+    //check if there is a value if theres no value print to console
+    
+    if(!guess) {
+        //convert falsy to truthy so if block runs
+        document.querySelector('.message').textContent = 'No number ya silly goose!';
+    }
+    
+    
+    
+    
+    
+    
 });
