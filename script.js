@@ -60,21 +60,25 @@ document.querySelector('.check').addEventListener('click', function(){
     } else if (guess === num) {
         document.querySelector('.message').textContent = 'Correct Number!';
         score ++;
+        //give the score as the text content
         document.querySelector('.score').textContent = score;
         
     } else if (guess > num) {
+        if(score > 0) {
         document.querySelector('.message').textContent = 'Too high!';
         score --; 
         document.querySelector('.score').textContent = score;
+        } else {
+            //if zero display other message
+            document.querySelector('.message').textContent = "You lose, you're a loser!"
+        }
+        
+        
     } else if (guess < num) {
         document.querySelector('.message').textContent = 'Too low!';
         score --;
         document.querySelector('.score').textContent = score;
     }
-    
-    
-    
-    
     
     
 });
