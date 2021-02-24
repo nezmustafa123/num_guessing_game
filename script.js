@@ -64,20 +64,31 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('.score').textContent = score;
         
     } else if (guess > num) {
-        if(score > 0) {
+        //iif within if
+        if(score > 1) {
         document.querySelector('.message').textContent = 'Too high!';
         score --; 
         document.querySelector('.score').textContent = score;
         } else {
             //if zero display other message
             document.querySelector('.message').textContent = "You lose, you're a loser!"
+            document.querySelector('.score').textContent = 0;
         }
         
         
     } else if (guess < num) {
+        if(score > 1) {
         document.querySelector('.message').textContent = 'Too low!';
-        score --;
+        score --; 
         document.querySelector('.score').textContent = score;
+        } else {
+            //if zero display other message
+            
+//            when the score is one it will go to one
+            document.querySelector('.message').textContent = "You lose, you're a loser!"
+            document.querySelector('.score').textContent = 0;
+        }
+        
     }
     
     
