@@ -33,6 +33,18 @@
 //});
 
 
+
+
+//define secret number globally
+//between one and 19 then truncated add one
+const num = Math.trunc(Math.random() * 20) +1 ;
+document.querySelector('.number').textContent = num;
+//set number square to number
+ let score = 20;
+
+
+
+
 //regular function expression  inside the query selector add event listener method
 
 document.querySelector('.check').addEventListener('click', function(){
@@ -45,6 +57,19 @@ document.querySelector('.check').addEventListener('click', function(){
     if(!guess) {
         //convert falsy to truthy so if block runs
         document.querySelector('.message').textContent = 'No number ya silly goose!';
+    } else if (guess === num) {
+        document.querySelector('.message').textContent = 'Correct Number!';
+        score ++;
+        document.querySelector('.score').textContent = score;
+        
+    } else if (guess > num) {
+        document.querySelector('.message').textContent = 'Too high!';
+        score --; 
+        document.querySelector('.score').textContent = score;
+    } else if (guess < num) {
+        document.querySelector('.message').textContent = 'Too low!';
+        score --;
+        document.querySelector('.score').textContent = score;
     }
     
     
