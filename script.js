@@ -53,7 +53,7 @@ document.querySelector('.check').addEventListener('click', function(){
 //    value form input generates string convert to number
     
     //check if there is a value if theres no value print to console
-    
+    //when no value
     if(!guess) {
         //convert falsy to truthy so if block runs
         document.querySelector('.message').textContent = 'No number ya silly goose!';
@@ -62,21 +62,30 @@ document.querySelector('.check').addEventListener('click', function(){
         score ++;
         //give the score as the text content
         document.querySelector('.score').textContent = score;
+        //just body element
+        //acess style property set it to string
+        
+        
+        document.querySelector('body').style.backgroundColor = '#60b347';
+        //style has to be string
+        document.querySelector('.number').style.width = '30rem';
         
     } else if (guess > num) {
+        //when guess is too high
         //iif within if
         if(score > 1) {
         document.querySelector('.message').textContent = 'Too high!';
         score --; 
         document.querySelector('.score').textContent = score;
         } else {
-            //if zero display other message
+            //if score happens to be one set text of score to 0 display other message and set text content to zero
             document.querySelector('.message').textContent = "You lose, you're a loser!"
             document.querySelector('.score').textContent = 0;
         }
         
         
     } else if (guess < num) {
+        //when guess is too low
         if(score > 1) {
         document.querySelector('.message').textContent = 'Too low!';
         score --; 
