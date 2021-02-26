@@ -43,6 +43,9 @@ let num = Math.trunc(Math.random() * 20) +1 ;
 //set number square to number
  let score = 20;
 let highscore = 0;
+const displayMessage = function(message) {
+     document.querySelector('.message').textContent = message;
+}
 
 console.log(num);
 
@@ -58,7 +61,7 @@ document.querySelector('.check').addEventListener('click', function(){
     //when no value
     if(!guess) {
         //convert falsy to truthy so if block runs
-        document.querySelector('.message').textContent = 'No number ya silly goose!';
+        displayMessage('No Number ya silly Goose!');
     } else if (guess === num) {
         document.querySelector('.message').textContent = 'Correct Number!';
         score ++;
@@ -75,16 +78,18 @@ document.querySelector('.check').addEventListener('click', function(){
         
         
         if(score > highscore) {
-            //when game finishes
+            //when game is finished
             //if score greater highscore = score
             highscore = score;
             document.querySelector('.highscore').textContent = highscore;
         }
-    } else if (guess > num) {
-        //when guess is too high
-        //iif within if
-        if(score > 1) {
-        document.querySelector('.message').textContent = 'Too high!';
+        //guess is wrong and different than scret number
+    } else if(guess !== num) {
+              //if guess is too high
+         if(score > 1) {
+        document.querySelector('.message').textContent = guess > num ? 'Too high!' : 'Too Low!';
+             
+                 //is guess greater than secret number ternary
         score --; 
         document.querySelector('.score').textContent = score;
         } else {
@@ -93,22 +98,36 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.score').textContent = 0;
         }
         
-        
-    } else if (guess < num) {
-        //when guess is too low
-        if(score > 1) {
-        document.querySelector('.message').textContent = 'Too low!';
-        score --; 
-        document.querySelector('.score').textContent = score;
-        } else {
-            //if zero display other message
-            
-//            when the score is one it will go to one
-            document.querySelector('.message').textContent = "You lose, you're a loser!"
-            document.querySelector('.score').textContent = 0;
-        }
-        
-    }
+    } 
+//          else if (guess > num) {
+//        //when guess is too high
+//        //iif within if
+//        if(score > 1) {
+//        document.querySelector('.message').textContent = 'Too high!';
+//        score --; 
+//        document.querySelector('.score').textContent = score;
+//        } else {
+//            //if score happens to be one set text of score to 0 display other message and set text content to zero
+//            document.querySelector('.message').textContent = "You lose, you're a loser!"
+//            document.querySelector('.score').textContent = 0;
+//        }
+//        
+//        
+//    } else if (guess < num) {
+//        //when guess is too low
+//        if(score > 1) {
+//        document.querySelector('.message').textContent = 'Too low!';
+//        score --; 
+//        document.querySelector('.score').textContent = score;
+//        } else {
+//            //if zero display other message
+//            
+////            when the score is one it will go to one
+//            document.querySelector('.message').textContent = "You lose, you're a loser!"
+//            document.querySelector('.score').textContent = 0;
+//        }
+//        
+//    }
     
     
 });
