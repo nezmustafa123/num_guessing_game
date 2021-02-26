@@ -37,6 +37,7 @@
 
 //define secret number globally
 //between one and 19 then truncated add one
+//have to reassign so cannot use const
 let num = Math.trunc(Math.random() * 20) +1 ;
 //document.querySelector('.number').textContent = num;
 //set number square to number
@@ -109,6 +110,10 @@ document.querySelector('.again').addEventListener('click', function(){
     //reset score to 20
     score = 20;
     document.querySelector('.score').textContent = score;
+    
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.number').textContent = '?';
+
     //update dom for score
     num = Math.trunc(Math.random() * 20) +1;
     //new random number
