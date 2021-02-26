@@ -37,12 +37,12 @@
 
 //define secret number globally
 //between one and 19 then truncated add one
-const num = Math.trunc(Math.random() * 20) +1 ;
-document.querySelector('.number').textContent = num;
+let num = Math.trunc(Math.random() * 20) +1 ;
+//document.querySelector('.number').textContent = num;
 //set number square to number
  let score = 20;
 
-
+console.log(num);
 
 
 //regular function expression  inside the query selector add event listener method
@@ -64,8 +64,9 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('.score').textContent = score;
         //just body element
         //acess style property set it to string
-        
-        
+        document.querySelector('.number').textContent = num;
+
+        //no dot
         document.querySelector('body').style.backgroundColor = '#60b347';
         //style has to be string
         document.querySelector('.number').style.width = '30rem';
@@ -102,3 +103,18 @@ document.querySelector('.check').addEventListener('click', function(){
     
     
 });
+
+
+document.querySelector('.again').addEventListener('click', function(){
+    //reset score to 20
+    score = 20;
+    document.querySelector('.score').textContent = score;
+    //update dom for score
+    num = Math.trunc(Math.random() * 20) +1;
+    //new random number
+    document.querySelector('.guess').value= '';
+    //reset input
+//    document.querySelector('.number').textContent = num;
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+})
