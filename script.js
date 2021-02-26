@@ -87,9 +87,12 @@ document.querySelector('.check').addEventListener('click', function(){
     } else if(guess !== num) {
               //if guess is too high
          if(score > 1) {
-        document.querySelector('.message').textContent = guess > num ? 'Too high!' : 'Too Low!';
+//        document.querySelector('.message').textContent = guess > num ? 'Too high!' : 'Too Low!';
              
-                 //is guess greater than secret number ternary
+                 //is guess greater than secret number ternary operator
+             
+        displayMessage(guess > num ? 'Too high!' : 'Too Low!');
+             //can use ternary operator as an argument in the function
         score --; 
         document.querySelector('.score').textContent = score;
         } else {
@@ -138,7 +141,9 @@ document.querySelector('.again').addEventListener('click', function(){
     score = 20;
     document.querySelector('.score').textContent = score;
     
-    document.querySelector('.message').textContent = 'Start guessing...';
+//    document.querySelector('.message').textContent = 'Start guessing...';
+    
+    displayMessage('Start guessing...');
     document.querySelector('.number').textContent = '?';
 
     //update dom for score
