@@ -42,6 +42,7 @@ let num = Math.trunc(Math.random() * 20) +1 ;
 //document.querySelector('.number').textContent = num;
 //set number square to number
  let score = 20;
+let highscore = 0;
 
 console.log(num);
 
@@ -51,7 +52,7 @@ console.log(num);
 document.querySelector('.check').addEventListener('click', function(){
    const guess = Number(document.querySelector('.guess').value);
     console.log(guess, typeof guess);
-//    value form input generates string convert to number
+//    value form input generates string always so convert to number
     
     //check if there is a value if theres no value print to console
     //when no value
@@ -72,6 +73,13 @@ document.querySelector('.check').addEventListener('click', function(){
         //style has to be string
         document.querySelector('.number').style.width = '30rem';
         
+        
+        if(score > highscore) {
+            //when game finishes
+            //if score greater highscore = score
+            highscore = score;
+            document.querySelector('.highscore').textContent = highscore;
+        }
     } else if (guess > num) {
         //when guess is too high
         //iif within if
@@ -118,7 +126,7 @@ document.querySelector('.again').addEventListener('click', function(){
     num = Math.trunc(Math.random() * 20) +1;
     //new random number
     document.querySelector('.guess').value= '';
-    //reset input
+    //reset input valueu to empty string value of input is always string
 //    document.querySelector('.number').textContent = num;
     document.querySelector('body').style.backgroundColor = '#222';
     document.querySelector('.number').style.width = '15rem';
